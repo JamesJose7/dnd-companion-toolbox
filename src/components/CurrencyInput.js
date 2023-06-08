@@ -5,6 +5,7 @@ const CurrencyInput = ({
   currencies,
   onCurrencyChange,
   calculateCurrencyDistribution,
+  clearCurrencies,
 }) => {
   return (
     <Box>
@@ -14,6 +15,7 @@ const CurrencyInput = ({
             <Typography>{currency.name}</Typography>
             <TextField
               type="number"
+              value={currency.amount}
               onChange={(event) =>
                 onCurrencyChange(currency.id, event.target.value)
               }
@@ -23,6 +25,9 @@ const CurrencyInput = ({
       </Grid>
       <Button variant="contained" onClick={calculateCurrencyDistribution}>
         Calculate
+      </Button>
+      <Button variant="contained" onClick={clearCurrencies}>
+        Clear
       </Button>
     </Box>
   );

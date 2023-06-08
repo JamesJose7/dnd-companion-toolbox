@@ -27,12 +27,18 @@ const CurrencyDistributorCalculator = () => {
     setDistributionResult(results);
   };
 
+  const handleClearCurrencies = () => {
+    setCurrencies(getAvailableCurrencies());
+    setDistributionResult([]);
+  };
+
   return (
     <Box py={5}>
       <CurrencyInput
         currencies={currencies}
         onCurrencyChange={handleCurrencyChange}
         calculateCurrencyDistribution={handleCalculateCurrencyDistribution}
+        clearCurrencies={handleClearCurrencies}
       />
 
       <Typography mt={4}>Results</Typography>
