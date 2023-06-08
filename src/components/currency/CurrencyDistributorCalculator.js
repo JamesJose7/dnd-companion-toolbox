@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import CurrencyInput from './CurrencyInput';
-import playersStorage from '../utils/storage/playersLocalStorage';
-import calculateCurrencyShareDistribution from '../utils/calculator/currencyShareCalculator';
-import getAvailableCurrencies from '../config/currencyData';
+import playersStorage from '../../utils/storage/playersLocalStorage';
+import calculateCurrencyShareDistribution from '../../utils/calculator/currencyShareCalculator';
+import getAvailableCurrencies from '../../config/currencyData';
+import CurrencyShareResult from './CurrencyShareResult';
 
 const CurrencyDistributorCalculator = () => {
   const [currencies, setCurrencies] = useState(getAvailableCurrencies());
@@ -44,37 +45,7 @@ const CurrencyDistributorCalculator = () => {
       <Typography mt={4}>Results</Typography>
 
       {distributionResult.length > 0 && (
-        <Grid container>
-          {distributionResult.map((result) => (
-            <Grid item xs={12} py={2}>
-              <Typography>{result.currency.name}</Typography>
-              <Grid container>
-                <Grid item xs={3}>
-                  <Typography>Player</Typography>
-                </Grid>
-                <Grid item xs={1}>
-                  <Typography>D20</Typography>
-                </Grid>
-                <Grid item xs={1}>
-                  <Typography>Share</Typography>
-                </Grid>
-              </Grid>
-              {result.distribution.map((playerResult) => (
-                <Grid container>
-                  <Grid item xs={3}>
-                    <Typography>{playerResult.player}</Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                    <Typography>{playerResult.d20Roll}</Typography>
-                  </Grid>
-                  <Grid item xs={1}>
-                    <Typography>{playerResult.currencyShare}</Typography>
-                  </Grid>
-                </Grid>
-              ))}
-            </Grid>
-          ))}
-        </Grid>
+        <CurrencyShareResult distributionResult={distributionResult} />
       )}
     </Box>
   );
