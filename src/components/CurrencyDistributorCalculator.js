@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import CurrencyInput from './CurrencyInput';
+import playersStorage from '../utils/storage/playersLocalStorage';
+import calculateCurrencyShareDistribution from '../utils/calculator/currencyShareCalculator';
 
 const gameCurrencies = [
   {
@@ -12,39 +14,6 @@ const gameCurrencies = [
     id: 2,
     name: 'Copper',
     amount: 0,
-  },
-];
-
-const resultsMock = [
-  {
-    currency: { id: 1, name: 'Gold', amount: 10 },
-    distribution: [
-      {
-        player: 'player 1',
-        d20Roll: 20,
-        currencyShare: 5,
-      },
-      {
-        player: 'player 2',
-        d20Roll: 20,
-        currencyShare: 5,
-      },
-    ],
-  },
-  {
-    currency: { id: 2, name: 'Copper', amount: 20 },
-    distribution: [
-      {
-        player: 'player 1',
-        d20Roll: 20,
-        currencyShare: 10,
-      },
-      {
-        player: 'player 2',
-        d20Roll: 20,
-        currencyShare: 10,
-      },
-    ],
   },
 ];
 
@@ -65,8 +34,9 @@ const CurrencyDistributorCalculator = () => {
   };
 
   const handleCalculateCurrencyDistribution = () => {
-    console.log(currencies);
-    setDistributionResult(resultsMock);
+    const players = playersStorage.getPlayers();
+    const results = calculateCurrencyShareDistribution(players, currencies);
+    setDistributionResult(results);
   };
 
   return (

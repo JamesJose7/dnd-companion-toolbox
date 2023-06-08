@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 
 const CurrencyInput = ({
