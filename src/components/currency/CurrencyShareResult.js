@@ -2,10 +2,10 @@ import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import PlayerCurrencyResult from './PlayerCurrencyResult';
 
-const CurrencyShareResult = ({ distributionResult }) => {
+const CurrencySplitResult = ({ splitResult }) => {
   return (
     <Grid container>
-      {distributionResult.map((result) => (
+      {splitResult.map((result) => (
         <Grid item xs={12} py={2}>
           <Typography>{result.currency.name}</Typography>
           <Grid container>
@@ -19,7 +19,7 @@ const CurrencyShareResult = ({ distributionResult }) => {
               <Typography>Share</Typography>
             </Grid>
           </Grid>
-          {result.distribution.map((playerResult) => (
+          {result.split.map((playerResult) => (
             <PlayerCurrencyResult playerResult={playerResult} />
           ))}
         </Grid>
@@ -28,4 +28,4 @@ const CurrencyShareResult = ({ distributionResult }) => {
   );
 };
 
-export default CurrencyShareResult;
+export default CurrencySplitResult;

@@ -4,7 +4,7 @@ import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 const CurrencyInput = ({
   currencies,
   onCurrencyChange,
-  calculateCurrencyDistribution,
+  calculateCurrencySplit,
   clearCurrencies,
 }) => {
   return (
@@ -23,7 +23,7 @@ const CurrencyInput = ({
           </Grid>
         ))}
       </Grid>
-      <Button variant="contained" onClick={calculateCurrencyDistribution}>
+      <Button variant="contained" onClick={calculateCurrencySplit}>
         Calculate
       </Button>
       <Button variant="contained" onClick={clearCurrencies}>

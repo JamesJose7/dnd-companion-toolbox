@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Box, Typography } from '@mui/material';
 import CurrencyInput from './CurrencyInput';
 import playersStorage from '../../utils/storage/playersLocalStorage';
-import calculateCurrencyShareDistribution from '../../utils/calculator/currencyShareCalculator';
+import calculateCurrencySplit from '../../utils/calculator/currencyShareCalculator';
 import getAvailableCurrencies from '../../config/currencyData';
-import CurrencyShareResult from './CurrencyShareResult';
+import CurrencySplitResult from './CurrencyShareResult';
 
-const CurrencyDistributorCalculator = () => {
+const CurrencySplitCalculator = () => {
   const [currencies, setCurrencies] = useState(getAvailableCurrencies());
-  const [distributionResult, setDistributionResult] = useState([]);
+  const [splitResult, setSplitResult] = useState([]);
 
   const handleCurrencyChange = (id, newAmount) => {
     const modifiedCurrencies = [...currencies];
@@ -22,15 +22,15 @@ const CurrencyDistributorCalculator = () => {
     }
   };
 
-  const handleCalculateCurrencyDistribution = () => {
+  const handleCalculateCurrencySplit = () => {
     const players = playersStorage.getPlayers();
-    const results = calculateCurrencyShareDistribution(players, currencies);
-    setDistributionResult(results);
+    const results = calculateCurrencySplit(players, currencies);
+    setSplitResult(results);
   };
 
   const handleClearCurrencies = () => {
     setCurrencies(getAvailableCurrencies());
-    setDistributionResult([]);
+    setSplitResult([]);
   };
 
   return (
@@ -38,17 +38,17 @@ const CurrencyDistributorCalculator = () => {
       <CurrencyInput
         currencies={currencies}
         onCurrencyChange={handleCurrencyChange}
-        calculateCurrencyDistribution={handleCalculateCurrencyDistribution}
+        calculateCurrencySplit={handleCalculateCurrencySplit}
         clearCurrencies={handleClearCurrencies}
       />
 
       <Typography mt={4}>Results</Typography>
 
-      {distributionResult.length > 0 && (
-        <CurrencyShareResult distributionResult={distributionResult} />
+      {splitResult.length > 0 && (
+        <CurrencySplitResult splitResult={splitResult} />
       )}
     </Box>
   );
 };
 
-export default CurrencyDistributorCalculator;
+export default CurrencySplitCalculator;
