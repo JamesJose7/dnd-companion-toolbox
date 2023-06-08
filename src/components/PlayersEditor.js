@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, IconButton, TextField, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import playersStorage from '../utils/storage/playersLocalStorage';
 
 const PlayersEditor = () => {
   const [players, setPlayers] = useState([]);
   const [playerInputValue, setPlayerInputValue] = useState('');
+
+  useEffect(() => {
+    const savedPlayers = playersStorage.getPlayers();
+    setPlayers(savedPlayers);
+  }, []);
 
   const handlePlayerInputChange = (event) => {
     setPlayerInputValue(event.target.value);
@@ -18,7 +24,9 @@ const PlayersEditor = () => {
 
   const handleAddPlayer = () => {
     if (!players.includes(playerInputValue)) {
-      setPlayers([...players, playerInputValue]);
+      const newPlayers = [...players, playerInputValue];
+      setPlayers(newPlayers);
+      playersStorage.savePlayers(newPlayers);
       setPlayerInputValue('');
     } else {
       alert('Player already added!');
@@ -28,6 +36,7 @@ const PlayersEditor = () => {
   const handleRemovePlayer = (playerToRemove) => {
     const newPlayers = players.filter((player) => player !== playerToRemove);
     setPlayers(newPlayers);
+    playersStorage.savePlayers(newPlayers);
   };
 
   return (

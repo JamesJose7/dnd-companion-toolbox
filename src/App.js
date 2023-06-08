@@ -1,5 +1,4 @@
 import Container from '@mui/material/Container';
-import CurrencyDistributorCalculator from './components/CurrencyDistributorCalculator';
 import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 import PlayersEditor from './components/PlayersEditor';
