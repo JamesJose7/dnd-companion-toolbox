@@ -3,22 +3,10 @@ import { Box, Grid, Typography } from '@mui/material';
 import CurrencyInput from './CurrencyInput';
 import playersStorage from '../utils/storage/playersLocalStorage';
 import calculateCurrencyShareDistribution from '../utils/calculator/currencyShareCalculator';
-
-const gameCurrencies = [
-  {
-    id: 1,
-    name: 'Gold',
-    amount: 0,
-  },
-  {
-    id: 2,
-    name: 'Copper',
-    amount: 0,
-  },
-];
+import getAvailableCurrencies from '../config/currencyData';
 
 const CurrencyDistributorCalculator = () => {
-  const [currencies, setCurrencies] = useState(gameCurrencies);
+  const [currencies, setCurrencies] = useState(getAvailableCurrencies());
   const [distributionResult, setDistributionResult] = useState([]);
 
   const handleCurrencyChange = (id, newAmount) => {
