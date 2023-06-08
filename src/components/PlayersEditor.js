@@ -55,7 +55,7 @@ const PlayersEditor = () => {
 
       <Box>
         {players.map((player) => (
-          <Box>
+          <Box key={player}>
             <Typography>{player}</Typography>
             <IconButton
               aria-label="delete"
