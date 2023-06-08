@@ -2,23 +2,25 @@ const calculateCurrencyShareDistribution = (players, currencies) => {
   const results = [];
   const numberOfPlayers = players.length;
 
-  currencies.forEach((currency) => {
-    const basePay = Math.floor(currency.amount / numberOfPlayers);
-    const currencyRemainder = currency.amount % numberOfPlayers;
+  currencies
+    .filter((currency) => currency.amount > 0)
+    .forEach((currency) => {
+      const basePay = Math.floor(currency.amount / numberOfPlayers);
+      const currencyRemainder = currency.amount % numberOfPlayers;
 
-    if (currencyRemainder === 0) {
-      const currencyResult = buildEvenResult(currency, players, basePay);
-      results.push(currencyResult);
-    } else {
-      const currencyResult = buildResultWithRemainder(
-        currency,
-        players,
-        basePay,
-        currencyRemainder
-      );
-      results.push(currencyResult);
-    }
-  });
+      if (currencyRemainder === 0) {
+        const currencyResult = buildEvenResult(currency, players, basePay);
+        results.push(currencyResult);
+      } else {
+        const currencyResult = buildResultWithRemainder(
+          currency,
+          players,
+          basePay,
+          currencyRemainder
+        );
+        results.push(currencyResult);
+      }
+    });
 
   return results;
 };
