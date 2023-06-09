@@ -1,5 +1,6 @@
-import { Grid, Typography, alpha, styled } from '@mui/material';
 import React from 'react';
+import { Grid, Typography, alpha, styled } from '@mui/material';
+
 import { colors } from '../../config/colors';
 
 const Header = styled(Grid)`

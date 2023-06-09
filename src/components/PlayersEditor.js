@@ -7,12 +7,14 @@ import {
   TextField,
   Typography,
   alpha,
+  styled,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import playersStorage from '../utils/storage/playersLocalStorage';
+
 import ContentContainer from './common/ContentContainer';
-import styled from '@emotion/styled';
+
 import { colors } from '../config/colors';
+import playersStorage from '../utils/storage/playersLocalStorage';
 
 const PlayersTitle = styled(Typography)`
   font-size: 3em;

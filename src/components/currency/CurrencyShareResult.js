@@ -1,6 +1,8 @@
 import React from 'react';
 import { Grid, Typography, alpha, styled } from '@mui/material';
+
 import PlayerCurrencyResult from './PlayerCurrencyResult';
+
 import { colors } from '../../config/colors';
 
 const TableTitle = styled(Typography)`

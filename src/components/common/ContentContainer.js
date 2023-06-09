@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from '@emotion/styled';
-import { Box, Paper } from '@mui/material';
+import { Box, Paper, styled } from '@mui/material';
+
 import { colors } from '../../config/colors';
 
 export const Background = styled(Paper)`

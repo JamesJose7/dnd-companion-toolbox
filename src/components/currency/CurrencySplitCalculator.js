@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
+import styled from '@emotion/styled';
+
 import CurrencyInput from './CurrencyInput';
-import playersStorage from '../../utils/storage/playersLocalStorage';
-import calculateCurrencySplit from '../../utils/calculator/currencyShareCalculator';
-import getAvailableCurrencies from '../../config/currencyData';
 import CurrencySplitResult from './CurrencyShareResult';
 import ContentContainer from '../common/ContentContainer';
-import styled from '@emotion/styled';
+
+import getAvailableCurrencies from '../../config/currencyData';
+import calculateCurrencySplit from '../../utils/calculator/currencyShareCalculator';
+import playersStorage from '../../utils/storage/playersLocalStorage';
 
 const Title = styled(Typography)`
   font-size: 3em;
