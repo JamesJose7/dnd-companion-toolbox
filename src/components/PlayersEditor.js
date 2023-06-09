@@ -1,7 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, IconButton, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  IconButton,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import playersStorage from '../utils/storage/playersLocalStorage';
+import ContentContainer from './common/ContentContainer';
+import styled from '@emotion/styled';
+
+const PlayersTitle = styled(Typography)`
+  font-size: 3em;
+  text-align: center;
+`;
+
+const PlayerContainer = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  width: 50%;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: rgba(188, 188, 188, 0.1);
+  &:hover {
+    background-color: rgba(188, 188, 188, 0.2);
+  }
+  @media (max-width: 600px) {
+    width: 90%;
+  }
+`;
+
+const PlayerName = styled(Typography)`
+  width: 100%;
+`;
+
+const PlayerInputContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+`;
+
+const PlayerNameInput = styled(TextField)`
+  flex: 1;
+  margin-right: 20px;
+`;
+
+const AddPlayerButton = styled(Button)`
+  align-self: stretch;
+  padding-left: 40px;
+  padding-right: 40px;
+`;
 
 const PlayersEditor = () => {
   const [players, setPlayers] = useState([]);
@@ -40,33 +91,37 @@ const PlayersEditor = () => {
   };
 
   return (
-    <Box>
-      <Typography>Players</Typography>
-      <TextField
-        label="Player name"
-        variant="outlined"
-        value={playerInputValue}
-        onChange={handlePlayerInputChange}
-        onKeyPress={handleEnterKeyPress}
-      />
-      <Button variant="contained" onClick={handleAddPlayer}>
-        Add
-      </Button>
+    <ContentContainer my={3}>
+      <PlayersTitle variant="h2" color="textPrimary" mb={5}>
+        Who is Playing?
+      </PlayersTitle>
+      <PlayerInputContainer>
+        <PlayerNameInput
+          label="Player name"
+          variant="outlined"
+          value={playerInputValue}
+          onChange={handlePlayerInputChange}
+          onKeyPress={handleEnterKeyPress}
+        />
+        <AddPlayerButton variant="contained" onClick={handleAddPlayer}>
+          Add
+        </AddPlayerButton>
+      </PlayerInputContainer>
 
-      <Box>
+      <Stack spacing={2} mt={5}>
         {players.map((player) => (
-          <Box key={player}>
-            <Typography>{player}</Typography>
+          <PlayerContainer key={player}>
+            <PlayerName>{player}</PlayerName>
             <IconButton
               aria-label="delete"
               onClick={() => handleRemovePlayer(player)}
             >
               <DeleteIcon />
             </IconButton>
-          </Box>
+          </PlayerContainer>
         ))}
-      </Box>
-    </Box>
+      </Stack>
+    </ContentContainer>
   );
 };
 

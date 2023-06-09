@@ -5,6 +5,7 @@ import playersStorage from '../../utils/storage/playersLocalStorage';
 import calculateCurrencySplit from '../../utils/calculator/currencyShareCalculator';
 import getAvailableCurrencies from '../../config/currencyData';
 import CurrencySplitResult from './CurrencyShareResult';
+import ContentContainer from '../common/ContentContainer';
 
 const CurrencySplitCalculator = () => {
   const [currencies, setCurrencies] = useState(getAvailableCurrencies());
@@ -34,7 +35,7 @@ const CurrencySplitCalculator = () => {
   };
 
   return (
-    <Box py={5}>
+    <ContentContainer my={3}>
       <CurrencyInput
         currencies={currencies}
         onCurrencyChange={handleCurrencyChange}
@@ -47,7 +48,7 @@ const CurrencySplitCalculator = () => {
       {splitResult.length > 0 && (
         <CurrencySplitResult splitResult={splitResult} />
       )}
-    </Box>
+    </ContentContainer>
   );
 };
 
