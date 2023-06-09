@@ -7,8 +7,8 @@ import {
   TextField,
   Typography,
   alpha,
-  styled,
 } from '@mui/material';
+import styled from '@emotion/styled';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import ContentContainer from './common/ContentContainer';
