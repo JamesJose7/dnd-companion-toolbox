@@ -20,13 +20,13 @@ const TextCell = styled(Typography)`
 const PlayerCurrencyResult = ({ playerResult }) => {
   return (
     <Header container>
-      <Grid item xs={8}>
+      <Grid item xs={7} md={8}>
         <TextCell>{playerResult.player}</TextCell>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} md={2}>
         <TextCell textAlign="center">{playerResult.d20Roll}</TextCell>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={3} md={2}>
         <TextCell textAlign="center">{playerResult.currencyShare}</TextCell>
       </Grid>
     </Header>

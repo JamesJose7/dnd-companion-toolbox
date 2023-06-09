@@ -27,21 +27,24 @@ const CurrencySplitResult = ({ splitResult }) => {
   return (
     <Grid container spacing={4}>
       {splitResult.map((result) => (
-        <Grid item xs={12} md={6} py={2}>
+        <Grid item xs={12} md={6} py={2} key={result.currency.id}>
           <TableTitle>{result.currency.name}</TableTitle>
           <Header container>
-            <Grid item xs={8}>
+            <Grid item xs={7} md={8}>
               <TextCell>Player</TextCell>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={2} md={2}>
               <TextCell textAlign="center">D20</TextCell>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={3} md={2}>
               <TextCell textAlign="center">Share</TextCell>
             </Grid>
           </Header>
           {result.split.map((playerResult) => (
-            <PlayerCurrencyResult playerResult={playerResult} />
+            <PlayerCurrencyResult
+              playerResult={playerResult}
+              key={playerResult.player}
+            />
           ))}
         </Grid>
       ))}
