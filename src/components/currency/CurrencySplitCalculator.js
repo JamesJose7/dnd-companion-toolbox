@@ -26,7 +26,7 @@ const CurrencySplitCalculator = () => {
     );
 
     if (currencyIndex !== -1) {
-      modifiedCurrencies[currencyIndex].amount = parseInt(newAmount) || 0;
+      modifiedCurrencies[currencyIndex].amount = parseInt(newAmount) || '';
       setCurrencies(modifiedCurrencies);
     }
   };

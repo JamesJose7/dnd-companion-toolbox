@@ -13,7 +13,7 @@ const getAvailableCurrencies = () => {
 const buildBaseCurrency = (name, i) => ({
   id: i,
   name: name,
-  amount: 0,
+  amount: '',
 });
 
 export default getAvailableCurrencies;
