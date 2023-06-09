@@ -14,4 +14,7 @@ export const theme = createTheme({
       primary: colors.dark,
     },
   },
+  typography: {
+    fontFamily: 'Josefin Sans, sans-serif',
+  },
 });

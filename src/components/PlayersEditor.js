@@ -92,7 +92,7 @@ const PlayersEditor = () => {
 
   return (
     <ContentContainer my={3}>
-      <PlayersTitle variant="h2" color="textPrimary" mb={5}>
+      <PlayersTitle variant="h2" color="textPrimary" fontWeight={500} mb={5}>
         Who is Playing?
       </PlayersTitle>
       <PlayerInputContainer>
