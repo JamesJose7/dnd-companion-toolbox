@@ -6,11 +6,13 @@ import {
   Stack,
   TextField,
   Typography,
+  alpha,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import playersStorage from '../utils/storage/playersLocalStorage';
 import ContentContainer from './common/ContentContainer';
 import styled from '@emotion/styled';
+import { colors } from '../config/colors';
 
 const PlayersTitle = styled(Typography)`
   font-size: 3em;
@@ -25,9 +27,9 @@ const PlayerContainer = styled(Box)`
   width: 50%;
   padding: 10px 30px;
   border-radius: 30px;
-  background-color: rgba(188, 188, 188, 0.1);
+  background-color: ${alpha(colors.secondary, 0.1)};
   &:hover {
-    background-color: rgba(188, 188, 188, 0.2);
+    background-color: ${alpha(colors.secondary, 0.2)};
   }
   @media (max-width: 600px) {
     width: 90%;

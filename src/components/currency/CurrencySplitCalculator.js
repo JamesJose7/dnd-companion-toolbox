@@ -6,6 +6,12 @@ import calculateCurrencySplit from '../../utils/calculator/currencyShareCalculat
 import getAvailableCurrencies from '../../config/currencyData';
 import CurrencySplitResult from './CurrencyShareResult';
 import ContentContainer from '../common/ContentContainer';
+import styled from '@emotion/styled';
+
+const Title = styled(Typography)`
+  font-size: 3em;
+  text-align: center;
+`;
 
 const CurrencySplitCalculator = () => {
   const [currencies, setCurrencies] = useState(getAvailableCurrencies());
@@ -36,6 +42,9 @@ const CurrencySplitCalculator = () => {
 
   return (
     <ContentContainer my={3}>
+      <Title variant="h2" color="textPrimary" fontWeight={500} mb={5}>
+        Currency Split Calculator
+      </Title>
       <CurrencyInput
         currencies={currencies}
         onCurrencyChange={handleCurrencyChange}
@@ -43,10 +52,13 @@ const CurrencySplitCalculator = () => {
         clearCurrencies={handleClearCurrencies}
       />
 
-      <Typography mt={4}>Results</Typography>
-
       {splitResult.length > 0 && (
-        <CurrencySplitResult splitResult={splitResult} />
+        <>
+          <Typography variant="h4" mt={6} mb={2}>
+            Results
+          </Typography>
+          <CurrencySplitResult splitResult={splitResult} />
+        </>
       )}
     </ContentContainer>
   );
