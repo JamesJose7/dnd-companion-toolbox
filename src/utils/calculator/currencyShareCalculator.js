@@ -37,7 +37,7 @@ const buildEvenResult = (currency, players, basePay) => {
   };
 };
 
-const buildResultWithRemainder = (
+export const buildResultWithRemainder = (
   currency,
   players,
   basePay,
