@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import PlayersEditor from './components/PlayersEditor';
+import PlayersEditor from './components/players/PlayersEditor';
 import CurrencySplitCalculator from './components/currency/CurrencySplitCalculator';
 
 import { colors } from './config/colors';
